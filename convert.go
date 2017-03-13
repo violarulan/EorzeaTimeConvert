@@ -17,12 +17,12 @@ const (
 )
 
 type EorzeaTime struct {
-        yearVal   int64
-        monthVal  int64
-        dayVal    int64
-        hourVal   int64
-        minuteVal int64
-        secondVal int64
+        YearVal   int64
+        MonthVal  int64
+        DayVal    int64
+        HourVal   int64
+        MinuteVal int64
+        SecondVal int64
 }
 
 var (
