@@ -34,12 +34,12 @@ func ConvertToEorzeaTime(time time.Time) EorzeaTime {
         eorzeaTime := int64(math.Floor(earthTime * EORZEA_TIME_CONSTANT))
 
         var ret EorzeaTime
-        ret.yearVal = int64(math.Floor(float64(eorzeaTime / YEAR))) + 1
-        ret.monthVal = int64(math.Floor(float64(eorzeaTime / MONTH % 12))) + 1
-        ret.dayVal = int64(math.Floor(float64(eorzeaTime / DAY % 32))) + 1
-        ret.hourVal = int64(math.Floor(float64(eorzeaTime / HOUR % 24)))
-        ret.minuteVal = int64(math.Floor(float64(eorzeaTime / MINUTE % 60)))
-        ret.secondVal = int64(math.Floor(float64(eorzeaTime / SECOND % 60)))
+        ret.YearVal = int64(math.Floor(float64(eorzeaTime / YEAR))) + 1
+        ret.MonthVal = int64(math.Floor(float64(eorzeaTime / MONTH % 12))) + 1
+        ret.DayVal = int64(math.Floor(float64(eorzeaTime / DAY % 32))) + 1
+        ret.HourVal = int64(math.Floor(float64(eorzeaTime / HOUR % 24)))
+        ret.MinuteVal = int64(math.Floor(float64(eorzeaTime / MINUTE % 60)))
+        ret.SecondVal = int64(math.Floor(float64(eorzeaTime / SECOND % 60)))
 
         return ret
 }
