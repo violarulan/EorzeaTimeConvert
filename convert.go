@@ -50,7 +50,7 @@ func ConvertToEorzeaTimeString(time time.Time, format string) string {
         eorzeaTime := int64(math.Floor(earthTime * EORZEA_TIME_CONSTANT))
 
         yearVal := "" + strconv.FormatInt(int64(math.Floor(float64(eorzeaTime / YEAR))) + 1, 10)
-        monthVal := formatZero(strconv.FormatInt(int64(math.Floor(float64(eorzeaTime / MONTH%12))) + 1, 10))
+        monthVal := formatZero(strconv.FormatInt(int64(math.Floor(float64(eorzeaTime / MONTH % 12))) + 1, 10))
         dayVal := formatZero(strconv.FormatInt(int64(math.Floor(float64(eorzeaTime / DAY % 32 ))) + 1, 10))
         hourVal := formatZero(strconv.FormatInt(int64(math.Floor(float64(eorzeaTime / HOUR % 24))), 10))
         minuteVal := formatZero(strconv.FormatInt(int64(math.Floor(float64(eorzeaTime / MINUTE % 60))), 10))
@@ -60,6 +60,38 @@ func ConvertToEorzeaTimeString(time time.Time, format string) string {
         ret = fmt.Sprintf(format, yearVal, monthVal, dayVal, hourVal, minuteVal, secondVal)
         return ret
 }
+
+func parseEorzeaTimeString(timestring string, format string) (time.Time, error) {
+
+        date, err := time.Parse(format, timestring)
+        var ret time.Time
+        if err != nil {
+                return ret, err
+        }
+        return date, nil
+}
+
+func ConvertToEarthTime(timestring string, format string) (time.Time, error) {
+        
+        date, err := parseEorzeaTimeString(format, timestring)
+        var ret time.Time
+        var utc int64
+
+        if err != nil {
+                return ret, err
+        }
+        years   := int64(date.Year())
+        months  := int64(date.Month())
+        days    := int64(date.Day())
+        hours   := int64(date.Hour())
+        minutes := int64(date.Minute())
+        seconds := int64(date.Second())
+
+        utc = int64(float64((years - 1) * YEAR + (months - 1) * MONTH + (days - 1) * DAY + hours * HOUR + minutes * MINUTE + seconds ) / EORZEA_TIME_CONSTANT)
+        ret = time.Unix(utc, 0)
+        return ret, nil
+}
+
 
 func formatZero(str string) string {
         if len(str) == 1 {

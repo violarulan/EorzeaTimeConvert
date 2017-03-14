@@ -28,14 +28,22 @@ The measurement and expression of time in Eorzea, like the real world, is govern
     )
 
     func main(){
-        // Convert a time.Time to a EorzeaTime
+        // Convert a time.Time(Earth Time) to a EorzeaTime
         var ret = c.ConvertToEorzeaTime(time.Now())
         fmt.Println(ret)
         // {924 6 30 2 31 53}
 
+        // Convert a time.Time(Earth Time) to a Eorzea time string 
         var str = c.ConvertToEorzeaTimeString(time.Now(), "%s-%s-%s %s:%s:%s")
         fmt.Println(str)
         // 924-06-30 08:01:22
+
+        // Convert a Eorzea Time string to a time.Time(Earth Time)
+        // For golang time format is restricted to "2006-01-02 15:04:05"
+        // e.g: Convert 0924-07-15 11:49:01
+        var time = c.ConvertToEarthTime("2006-01-02 15:04:05", "0924-07-15 11:49:01")
+        fmt.Println(time)
+        // 2017-03-14 17:54:27 +0900 JST
     }
 
 ## Contribute
