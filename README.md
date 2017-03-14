@@ -1,6 +1,6 @@
 # EorzeaTimeConvert
 
-Convert Earth time to FFXIV Eorzea time
+FFXIV Eorzea Time and Earth Time Conversion
 
 ## Time
 
