@@ -8,14 +8,15 @@ The measurement and expression of time in Eorzea, like the real world, is govern
 
 ## Eorzean Time Units and Conversions
 
- Eorzean Increments | Components in Eorzean Units |  Conversion into Earth Time
---------------------|-----------------------------|----------------------------
-       1 minute     |          60 seconds         |        2 11/12 seconds
-        1 bell      |          60 minutes         |     2 minutes, 55 seconds
-        1 sun       |           24 bells          |          70 minutes
-        1 week      |            8 suns           |      9 hours, 20 minutes
-        1 moon      |           32 suns           |      37 hours, 20 minutes
-        1 year      |           12 moons          |        18 days, 16 hours 
+| Eorzean Increments | Components in Eorzean Units |  Conversion into Earth Time|
+|--------------------|:---------------------------:| ---------------------------|
+|       1 minute     |          60 seconds         |        2 11/12 seconds     |
+|        1 bell      |          60 minutes         |     2 minutes, 55 seconds  |
+|        1 sun       |           24 bells          |          70 minutes        |
+|        1 week      |            8 suns           |      9 hours, 20 minutes   |
+|        1 moon      |           32 suns           |      37 hours, 20 minutes  |
+|        1 year      |           12 moons          |        18 days, 16 hours   |
+
 
 ## Usage
 
